@@ -1,0 +1,4 @@
+build/
+tango/build/
+*.bck
+*.bak
