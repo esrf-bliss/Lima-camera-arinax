@@ -6,7 +6,7 @@
 {% endif %}
 
 package:
-  name: lima-camera-prosilica-tango
+  name: lima-camera-arinax-tango
   version: {{ version }}
 
 source:
@@ -23,7 +23,7 @@ requirements:
     - lima-core
   run:
     - lima-tango-server
-    - lima-camera-prosilica
+    - lima-camera-arinax
 
 about:
   home: https://github.com/esrf-bliss/Lima

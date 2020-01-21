@@ -1,16 +1,17 @@
-.. _camera-prosilica:
+.. _camera-arinax:
 
-Prosilica
+Arinax
 ---------
 
-.. image:: prosilica.jpg
+.. image:: arinax-b-zoom.png
 
 Introduction
 ````````````
 
-AVT offers a large choice of FireWire and GigE cameras for machine vision, computer vision and other industrial or medical applications. Cameras by AVT and Prosilica include sensitive machine vision sensors (CCD and CMOS, VGA to 16 Megapixels) and fit a wide range of applications.
+The OAV B-ZOOM is an On-Axis Video-microscope with a hybrid zoom system used for parallax free observation of micrometer sized crystals.
+It is optimized for MX crystallography beamlines and high throughput stations in Synchrotrons.
 
-The Lima module as been tested with color and B/W GigE camera.
+The OAV B-ZOOM is the next evolution of the OAV Ultra-Zoom: it combines the EMBL patented Objective Head of the OAV with a new zooming and visualization module, allowing instant zoom change and integrating a multi-camera video server.
 
 Installation & Module configuration
 ````````````````````````````````````
@@ -19,7 +20,7 @@ Follow the generic instructions in :ref:`build_installation`. If using CMake dir
 
 .. code-block:: sh
 
- -DLIMACAMERA_PROSILICA=true
+ -DLIMACAMERA_ARINAX=true
 
 For the Tango server installation, refers to :ref:`tango_installation`.
 
@@ -30,7 +31,7 @@ Implementing a new plugin for new detector is driven by the LIMA framework but t
 Camera initialisation
 .....................
 
-The camera will be initialized by creating a :cpp::class:`Prosilica::Camera` object. The contructor sets the camera with default parameters, only the ip address or hostname of the camera is mandatory.
+The camera will be initialized by creating a :cpp::class:`Arinax::Camera` object. The contructor sets the camera with default parameters, only the ip address or hostname of the camera is mandatory.
 
 Std capabilities
 ................
@@ -41,11 +42,11 @@ This plugin has been implemented in respect of the mandatory capabilites but wit
 
   getCurrImageType/getDefImageType(): it can change if the video mode change (see HwVideo capability).
 
-  setCurrImageType(): It only supports Bpp8 and Bpp16.
+  setCurrImageType(): It only supports Bpp8.
 
 * HwSync
 
-  get/setTrigMode(): the only supported mode are IntTrig, IntTrigMult and ExtTrigMult.
+  get/setTrigMode(): the only supported mode are IntTrig.
 
 Optional capabilities
 .....................
@@ -55,16 +56,9 @@ are supported by the SDK. Video and Binning are available.
 
 * HwVideo
 
-  The prosilica cameras are pure video devices, so only video format for image are supported:
-
-  **Color cameras ONLY**
-   - BAYER_RG8
-   - BAYER_RG16
+  The arinax bzoom is a pure video devicexs, video formats for image are supported:
    - RGB24
    - BGR24
-
-  **Color and Monochrome cameras**
-   - Y8
 
   Use get/setMode() methods of the cpp::class::`Video` object (i.e. CtControl::video()) to read or set the format.
 
@@ -75,12 +69,7 @@ are supported by the SDK. Video and Binning are available.
 Configuration
 ``````````````
 
-- First you have to setup ip address of the Prosilica Camera with ``CLIpConfig`` located in ``camera/prosilica/sdk/CLIpConfig``
-- list of all cameras available : ``CLIpConfig -l`` (If you do not see any camera, that's bad news!)
-- finally set ip add : ``CLIpConfig -u UNIQUE_NUMBER -s -i 169.254.X.X -n 255.255.255.0 -m FIXED`` (It's an example!)
-- Then in the Prosilica Tango device set the property ``cam_ip_address`` to the address previously set.
-
-That's all....
+For the hardware and network installation refer to the Arinax documentation.
 
 How to use
 ````````````
@@ -88,12 +77,12 @@ This is a python code example for a simple test:
 
 .. code-block:: python
 
-  from Lima import Prosilica
+  from Lima import Arinax
   from lima import Core
 
-  cam = Prosilica.Camera("192.169.1.1")
+  cam = Arinax.Camera("bzoom")
 
-  hwint = Prosilica.Interface(cam)
+  hwint = Arinax.Interface(cam)
   ct = Core.CtControl(hwint)
 
   acq = ct.acquisition()

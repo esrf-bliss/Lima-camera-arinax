@@ -1,22 +1,22 @@
 [![License](https://img.shields.io/github/license/esrf-bliss/lima.svg?style=flat)](https://opensource.org/licenses/GPL-3.0)
 [![Gitter](https://img.shields.io/gitter/room/esrf-bliss/lima.svg?style=flat)](https://gitter.im/esrf-bliss/LImA)
-[![Conda](https://img.shields.io/conda/dn/esrf-bcu/lima-camera-prosilica.svg?style=flat)](https://anaconda.org/esrf-bcu)
-[![Version](https://img.shields.io/conda/vn/esrf-bcu/lima-camera-prosilica.svg?style=flat)](https://anaconda.org/esrf-bcu)
-[![Platform](https://img.shields.io/conda/pn/esrf-bcu/lima-camera-prosilica.svg?style=flat)](https://anaconda.org/esrf-bcu)
+[![Conda](https://img.shields.io/conda/dn/esrf-bcu/lima-camera-arinax.svg?style=flat)](https://anaconda.org/esrf-bcu)
+[![Version](https://img.shields.io/conda/vn/esrf-bcu/lima-camera-arinax.svg?style=flat)](https://anaconda.org/esrf-bcu)
+[![Platform](https://img.shields.io/conda/pn/esrf-bcu/lima-camera-arinax.svg?style=flat)](https://anaconda.org/esrf-bcu)
 
-# LImA Prosilica Camera Plugin
+# LImA Arinax Camera Plugin
 
-This is the LImA plugin for the Prosilica cameras.
+This is the LImA plugin for the Arinax Bizoom camera.
 
 ## Install
 
 ### Camera python
 
-conda install -c esrf-bcu lima-camera-prosilica
+conda install -c esrf-bcu lima-camera-arinax
 
 ### Camera tango device server
 
-conda install -c tango-controls -c esrf-bcu lima-camera-prosilica-tango
+conda install -c tango-controls -c esrf-bcu lima-camera-arinax-tango
 
 # LImA
 

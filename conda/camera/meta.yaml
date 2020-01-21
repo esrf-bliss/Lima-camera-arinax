@@ -6,7 +6,7 @@
 {% endif %}
 
 package:
-  name: lima-camera-prosilica
+  name: lima-camera-arinax
   version: {{ version }}
 
 source:
@@ -21,7 +21,7 @@ requirements:
     - numpy
     - sip 4.19.8              # For compatibility with pyqt 5.9.2
     - lima-core
-    - pvapi-sdk 1.24
+    - arinax-sdk
   build:
     - git
     - cmake
@@ -30,13 +30,13 @@ requirements:
     - python {{ python }}
     - sip >=4.19.4, <=4.19.8  # For compatibility with pyqt 5.9.2
     - {{ pin_compatible('lima-core', max_pin='x.x') }}
-    - pvapi-sdk 1.24
+    - arinax-sdk
 
 test:
   requires:
     - cmake
   imports:
-    - Lima.Prosilica
+    - Lima.Arinax
   commands:
     - cmake --version
     - ctest --version

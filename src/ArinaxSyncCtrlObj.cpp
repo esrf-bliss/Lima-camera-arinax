@@ -41,35 +41,7 @@ void SyncCtrlObj::setTrigMode(TrigMode trig_mode)
 {
   DEB_MEMBER_FUNCT();
   DEB_PARAM() << DEB_VAR1(trig_mode);
-/*
-  tPvErr error;
-  if(checkTrigMode(trig_mode))
-    {
-      switch(trig_mode)
-	{
-	case ExtTrigMult:
-	  error = PvAttrEnumSet(m_handle, "FrameStartTriggerMode", "SyncIn1");
-	  if(error)
-	    throw LIMA_HW_EXC(Error,"Can't set trigger input");
-	  error = PvAttrEnumSet(m_handle, "FrameStartTriggerEvent", "EdgeRising");
-	  if(error)
-	    throw LIMA_HW_EXC(Error,"Can't change Trigger start to a rising edge");
-	  break;
-	default:		// Software
-	  error = PvAttrEnumSet(m_handle, "FrameStartTriggerMode", "FixedRate");
-	  if(error)
-	    {
-	      std::stringstream message;
-	      message << "could not set trigger mode to FixedRate " << error;
-	      throw LIMA_HW_EXC(Error,message.str().c_str());
-	    }
-	  break;
-	}*/
       m_trig_mode = trig_mode;
-/*    }
-  else
-    throw LIMA_HW_EXC(NotSupported,"Trigger type not supported");
-*/
 }
 
 void SyncCtrlObj::getTrigMode(TrigMode &trig_mode)
