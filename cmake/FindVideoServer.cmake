@@ -1,16 +1,13 @@
 set(ARINAXVIDEOSERVER_INCLUDE_DIRS)
 set(ARINAXVIDEOSERVER_LIBRARIES)
 
-#set(ARINAXVIDEOSERVER_INCLUDE_DIRS /home/arinax/deploy/VideoServer/)
-#set(ARINAXVIDEOSERVER_LIBRARIES VideoServer)
-
 set(ARINAXVIDEOSERVER_DEFINITIONS)
 
-find_path(ARINAXVIDEOSERVER_INCLUDE_DIRS "VideoServer.h" PATHS sdk/include/)
-find_library(ARINAXVIDEOSERVER_LIBRARIES VideoServer PATHS sdk/bin/)
+find_path(ARINAXVIDEOSERVER_INCLUDE_DIRS "VideoServer.h")
+find_library(ARINAXVIDEOSERVER_LIBRARIES VideoServer)
 
-#include(FindPackageHandleStandardArgs)
-#find_package_handle_standard_args(VideoServer DEFAULT_MSG
-#  ARINAXVIDEOSERVER_LIBRARIES
-#  ARINAXVIDEOSERVER_INCLUDE_DIRS
-#)
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(VideoServer DEFAULT_MSG
+  ARINAXVIDEOSERVER_LIBRARIES
+  ARINAXVIDEOSERVER_INCLUDE_DIRS
+  )
